@@ -245,7 +245,6 @@ class MySQL extends mysqli
 
 		//Remove a última vírgula (desnecessária)
 		$update = substr($update, 0, strlen(trim($update)) - 1);
-		echo "UPDATE $table SET $update WHERE $cond";
 		
 		//Atualiza os dados
 		$sql = parent::query("UPDATE $table SET $update WHERE $cond");

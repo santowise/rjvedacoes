@@ -7,9 +7,14 @@ if (!preg_match("/v/i", $permissoes_clientes)) { header('Location: '.$_SERVER['H
 topo();
 
 
+//Id do cliente
+$id = (int)$_GET['id'];
+
+
 ?>
 <h1>
-    <a href="<?php echo HOST_URL ?>/clientes/listar">Clientes</a> » Listar
+    <a href="<?php echo HOST_URL ?>/clientes/listar">Clientes</a> » 
+    <a href="<?php echo HOST_URL ?>/clientes/cotacoes/listar?id=<?php echo $id ?>">Cotações</a> » Listar
 </h1>
 </section>
 
@@ -21,6 +26,11 @@ topo();
             <div class="box">
             
                 <div class="box-body table-responsive">
+
+                    <a href="./cadastrar?id=<?php echo $id ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Criar nova cotação</a>
+
+                    <br /><br />
+
                     <table class="table table-bordered table-hover paginacao">
                         
                         <!-- // DataTable -->
@@ -57,7 +67,7 @@ $(document).ready(function()
 			
 			// ID			
 			{ 	
-				"sTitle": "ID",
+				"sTitle": "Número",
 				"fnRender": function(obj)
 				{
 					var sReturn = obj.aData[ obj.iDataColumn ];
@@ -71,27 +81,11 @@ $(document).ready(function()
 			
 			{ "sTitle": "Nome" },
 			
-			{ "sTitle": "Contato" },
-			
-			{ "sTitle": "E-mail" },
-			
-			{ "sTitle": "Telefone (1)" },
-			
-			{ "sTitle": "Telefone (2)" },
-
 			{
-				"sTitle": "Cotações",
-				"sClass": "textC w10 alignM",
-				"mData" : null,
-				"bSortable": false,
-				"fnRender": function(obj)
-				{
-					var sReturn = "<?php if (preg_match("/e/i", $permissoes_clientes)): ?><a href='<?php echo HOST_URL ?>/clientes/cotacoes/listar?id="+id_reg+"'><i class='fa fa-file-text' title='Cotações'></i></a><?php endif; ?>";
-										
-					return sReturn;
-				}
+				"sTitle": "Cadastro",			
+				"bSortable": false
 			},
-
+			
 			{
 				"sTitle": "Editar",
 				"sClass": "textC w10 alignM",
@@ -99,12 +93,13 @@ $(document).ready(function()
 				"bSortable": false,
 				"fnRender": function(obj)
 				{
-					var sReturn = "<?php if (preg_match("/e/i", $permissoes_clientes)): ?><a href='<?php echo HOST_URL ?>/clientes/editar?id="+id_reg+"'><i class='fa fa-pencil' title='Editar'></i></a><?php endif; ?>";
+					var sReturn = "<?php if (preg_match("/e/i", $permissoes_clientes)): ?><a href='<?php echo HOST_URL ?>/clientes/cotacoes/editar?id="+id_reg+"'><i class='fa fa-pencil' title='Editar'></i></a><?php endif; ?>";
 										
 					return sReturn;
 				}
 			},
-
+			
+			//Excluir
 			{
 				"sTitle": "Excluir",
 				"sClass": "textC w10 alignM",
@@ -112,12 +107,12 @@ $(document).ready(function()
 				"bSortable": false,
 				"fnRender": function(obj)
 				{
-					return "<?php if (preg_match("/d/i", $permissoes_clientes)): ?><a href='<?php echo HOST_URL ?>/clientes/deletar?id="+id_reg+"' onclick='return confirm(\"Isso irá apagar definitivamente esse registro e essa ação é irreversível. Deseja prosseguir?\")'><i class='fa fa-trash-o fontRed' title='Excluir'></i></a><?php endif; ?>";
+					return "<?php if (preg_match("/d/i", $permissoes_clientes)): ?><a href='<?php echo HOST_URL ?>/clientes/cotacoes/deletar?id="+id_reg+"' onclick='return confirm(\"Isso irá apagar definitivamente esse registro e essa ação é irreversível. Deseja prosseguir?\")'><i class='fa fa-trash-o fontRed' title='Excluir'></i></a><?php endif; ?>";
 				}
 			}
 		],
 		
-		"sAjaxSource": "<?php echo HOST_URL ?>/sistema/clientes/listar.ajax.php"
+		"sAjaxSource": "<?php echo HOST_URL ?>/sistema/clientes/cotacoes/listar.ajax.php?id=<?php echo $id ?>"
 	});
 
 

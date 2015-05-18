@@ -58,23 +58,29 @@ function rodape() { require SISTEMA_PATH . '/rodape.php'; }
  *     array("URL_PATH", "ARQUIVO_REFERENTE_URL")
  **/
 $mapa_urls = array('/' => '/index.php',	
-				   
-				   //Localizador de Lojas	   
-				   '/clientes/cadastrar'           => '/clientes/cadastrar.php',
-				   '/clientes/cadastrar_processar' => '/clientes/cadastrar_processar.php',
-				   '/clientes/editar'              => '/clientes/editar.php',
-				   '/clientes/editar_processar'    => '/clientes/editar_processar.php',	
-				   '/clientes/listar'              => '/clientes/listar.php',
-                   '/clientes/deletar'             => '/clientes/deletar_processar.php',				   
+
+            '/clientes/cadastrar'           => '/clientes/cadastrar.php',
+            '/clientes/cadastrar_processar' => '/clientes/cadastrar_processar.php',
+            '/clientes/editar'              => '/clientes/editar.php',
+            '/clientes/editar_processar'    => '/clientes/editar_processar.php',
+            '/clientes/listar'              => '/clientes/listar.php',
+            '/clientes/deletar'             => '/clientes/deletar_processar.php',
+    
+                '/clientes/cotacoes/cadastrar'           => '/clientes/cotacoes/cadastrar.php',
+                '/clientes/cotacoes/cadastrar_processar' => '/clientes/cotacoes/cadastrar_processar.php',
+                '/clientes/cotacoes/editar'              => '/clientes/cotacoes/editar.php',
+                '/clientes/cotacoes/editar_processar'    => '/clientes/cotacoes/editar_processar.php',
+                '/clientes/cotacoes/listar'              => '/clientes/cotacoes/listar.php',
+                '/clientes/cotacoes/deletar'             => '/clientes/cotacoes/deletar_processar.php',
 				   			   
-                   //Funcionários
-                   '/funcionarios/listar'              => '/funcionarios/listar.php',
-                   '/funcionarios/editar'              => '/funcionarios/editar.php',
-                   '/funcionarios/editar_processar'    => '/funcionarios/editar_processar.php',
-                   '/funcionarios/cadastrar'           => '/funcionarios/cadastrar.php',
-                   '/funcionarios/cadastrar_processar' => '/funcionarios/cadastrar_processar.php',
-                   '/funcionarios/deletar'             => '/funcionarios/deletar_processar.php',
-                   '/sair'                             => '/funcionarios/logout.php');
+            //Funcionários
+            '/funcionarios/listar'              => '/funcionarios/listar.php',
+            '/funcionarios/editar'              => '/funcionarios/editar.php',
+            '/funcionarios/editar_processar'    => '/funcionarios/editar_processar.php',
+            '/funcionarios/cadastrar'           => '/funcionarios/cadastrar.php',
+            '/funcionarios/cadastrar_processar' => '/funcionarios/cadastrar_processar.php',
+            '/funcionarios/deletar'             => '/funcionarios/deletar_processar.php',
+            '/sair'                             => '/funcionarios/logout.php');
 
 
 //Define qual arquivo a ser chamado (Esse que irá exibir o site)
