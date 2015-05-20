@@ -85,6 +85,19 @@ $(document).ready(function()
 				"sTitle": "Cadastro",			
 				"bSortable": false
 			},
+
+			{
+				"sTitle": "Baixar PDF",
+				"sClass": "textC w10 alignM",
+				"mData" : null,
+				"bSortable": false,
+				"fnRender": function(obj)
+				{
+					var sReturn = "<?php if (preg_match("/e/i", $permissoes_clientes)): ?><a href='<?php echo HOST_URL ?>/sistema/clientes/cotacoes/exportar_pdf.php?id="+id_reg+"'><i class='fa fa-download' title='Baixar PDF'></i></a><?php endif; ?>";
+										
+					return sReturn;
+				}
+			},
 			
 			{
 				"sTitle": "Editar",

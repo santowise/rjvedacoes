@@ -8,7 +8,7 @@ $id = $_GET['id'];
 
 
 //Dados da cotacao
-$cotacao = $mysql->getRow("SELECT id, cliente_id FROM cotacoes WHERE numero = '$id'");
+$cotacao = $mysql->getRow("SELECT id, cliente_id, validade, entrega, pagamento, impostos FROM cotacoes WHERE numero = '$id'");
 
 //Itens
 $itens = $mysql->getRows("SELECT item, descricao, quantidade, unidade, preco_unitario, preco_total
@@ -39,7 +39,48 @@ topo();
         <form method="post" action="./editar_processar?id=<?php echo $id ?>">
 
 
-        <input type="hidden" name="cliente_id" value="<?php echo $cliente['id'] ?>" /> 
+        <input type="hidden" name="cliente_id" value="<?php echo $cotacao['cliente_id'] ?>" /> 
+
+        <!-- left column -->
+        <div class="col-md-12">
+                
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Cliente:
+                    <a href="<?php echo HOST_URL ?>/clientes/editar?id=<?php echo $id ?>"
+                    target="_blank" style="color: #3c8dbc;"><?php echo $cliente['nome'] ?></a></h3>
+                </div>
+                <div class="box-body">                
+                    
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <label for="validade">* Validade</label>
+                            <input type="text" name="validade" class="form-control" required
+                            value="<?php echo $cotacao['validade'] ?>" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="pagamento">* Condições de Pagamento</label>
+                            <input type="text" name="pagamento" class="form-control" required
+                            value="<?php echo $cotacao['pagamento'] ?>" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="impostos">* Impostos</label>
+                            <input type="text" name="impostos" class="form-control" required
+                            value="<?php echo $cotacao['impostos'] ?>" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="entrega">* Prazo de Entrega</label>
+                            <input type="text" name="entrega" class="form-control" required
+                            value="<?php echo $cotacao['entrega'] ?>" />
+                        </div>
+                    </div>
+                    
+                </div><!-- /.box-body -->                    
+            </div><!-- /.box -->
+
+            
+        </div><!--/.col (right) -->  
         
 
         <!-- left column -->

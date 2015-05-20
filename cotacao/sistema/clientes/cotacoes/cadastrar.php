@@ -46,6 +46,41 @@ $cliente = $mysql->getRow("SELECT nome FROM clientes WHERE id = $id");
                 <div class="box-body">                
                     
                     <div class="row">
+                        <div class="col-xs-3">
+                            <label for="validade">* Validade</label>
+                            <input type="text" name="validade" class="form-control" required
+                            value="15 dias" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="pagamento">* Condições de Pagamento</label>
+                            <input type="text" name="pagamento" class="form-control" required
+                            value="30DD" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="impostos">* Impostos</label>
+                            <input type="text" name="impostos" class="form-control" required
+                            value="Inclusos" />
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="entrega">* Prazo de Entrega</label>
+                            <input type="text" name="entrega" class="form-control" required />
+                        </div>
+                    </div>
+                    
+                </div><!-- /.box-body -->                    
+            </div><!-- /.box -->
+
+            
+        </div><!--/.col (right) -->    
+
+        <!-- left column -->
+        <div class="col-md-12">
+                
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-body">                
+                    
+                    <div class="row">
                         <div class="col-xs-2">
                             <label for="item">* Item</label>
                         </div>
